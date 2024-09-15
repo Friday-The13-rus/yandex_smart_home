@@ -21,6 +21,7 @@ from homeassistant.components import (
     script,
     switch,
     vacuum,
+    valve,
     water_heater,
 )
 from homeassistant.const import (
@@ -125,7 +126,7 @@ class OnOffCapabilityBasic(OnOffCapability):
     @property
     def supported(self) -> bool:
         """Test if the capability is supported."""
-        return self.state.domain in (light.DOMAIN, fan.DOMAIN, switch.DOMAIN, humidifier.DOMAIN, input_boolean.DOMAIN)
+        return self.state.domain in (light.DOMAIN, fan.DOMAIN, switch.DOMAIN, humidifier.DOMAIN, input_boolean.DOMAIN, valve.DOMAIN)
 
     async def _set_instance_state(self, context: Context, state: OnOffCapabilityInstanceActionState) -> None:
         """Change the capability state (if wasn't overriden by the user)."""
